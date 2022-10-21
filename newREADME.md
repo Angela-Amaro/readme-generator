@@ -1,7 +1,7 @@
-# r
+# cats
   ## [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   ## author
-  r
+  angela
   ## Table of Contents
   * [Description](#description)
   * [Installation](#installation)
@@ -10,17 +10,18 @@
   * [Tests](#tests)
   * [Questions](#questions)
   ## description
-  r
+  toys for cats
   ## Installation
-   r
+   utils
   ## Usage
-  r
+  info for toys on cats
   ## License
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   MIT
   ## contributing
-  r
+  none
   ## tests
-  r
+  none
   ## questions
-  r
+  - Github username: [angela-amaro](https://github.com/angela-amaro)
+  - Contact Email: aamaro@gmail.com
