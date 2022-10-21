@@ -52,8 +52,13 @@ const questions = [
 },
 {
     type: 'input',
-    name: 'questions',
-    message: 'Put your linkedin here for questions'
+    name: 'GitHub',
+    message: 'please enter your Github username'
+},
+{
+    type: 'input',
+    name: 'email',
+    message: 'Please enter your email'
 }];
 //function to write README file
 // function writeToFile(genreadme,data) {   
@@ -84,7 +89,7 @@ function renderLicenseBadge(value) {
           return "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
         }
         else if(value === "" || value ==="N/A"){
-          return;
+          return "N/A";
         }
       
       }
