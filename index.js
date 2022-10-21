@@ -1,9 +1,12 @@
-// TODO: Include packages needed for this application
+//packages needed for this application
 const inquirer = require('inquirer');
 const fs = require("fs");
-const markdown = require('./utils/generateMarkdown');
+const util = require('util');
+// const md = require("./generateMarkdown.js");
+const generateReadme = require("./utils/generateMarkdown");
+const writeFileAsync = util.promisify(fs.writeFile);
 
-// TODO: Create an array of questions for user input
+//array of questions for user input
 const questions = [ 
 {
     type: 'input',
@@ -14,11 +17,6 @@ const questions = [
     type: 'input',
     name: 'author',
     message: 'list your name here'
-},
-{
-    type: 'input',
-    name: 'sections',
-    message: 'What sections do you have?',
 },
 {
     type: 'input',
@@ -38,9 +36,9 @@ const questions = [
 },
 {
     type: 'list',
-    name: 'License',
+    name: 'license',
     message: 'select your license',
-    choices: ['MIT License','GNU General Public License v3.0', 'The Unlicense', 'Mozilla Public License 2.0'],
+    choices: ['MIT','GNU GPLv3', 'ISC', 'Mozilla 2.0'],
 },
 {
     type: 'input',
@@ -55,26 +53,61 @@ const questions = [
 {
     type: 'input',
     name: 'questions',
-    message: 'In case people have questions list your linkadin here'
-},];
-// // TODO: Create a function to write README file
-function writeToFile(genreadme,data) {   
+    message: 'Put your linkedin here for questions'
+}];
+//function to write README file
+// function writeToFile(genreadme,data) {   
 
-fs.writeToFile(genreadme, data, (err) =>
-err ? console.log(err) : console.log('Your generated readme is complete')
-); 
-}
+// writeFileAsync(genreadme, generateReadme.generateReadme(data), (err) => {
+// err ? console.log(err) : console.log('Your generated readme is complete')
+// }); 
+// }
+// TODO: Create a function that returns a license badge based on which license is passed in
+
+// If there is no license, return an empty string
+function renderLicenseBadge(value) {
+   
+        if(value === "GNU GPLv3"){
+      
+          return "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
+        }
+    
+        else if(value === "ISC"){
+          return "[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)";
+      
+        }
+        else if(value ==="MIT"){
+      
+          return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+        }
+        else if(value ==="Mozilla" ){
+          return "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
+        }
+        else if(value === "" || value ==="N/A"){
+          return;
+        }
+      
+      }
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName,generateReadme(data), function(err) {
+      if (err) {
+          return console.log(err);
+      }
+  });
+  
+  }
+//function to initialize app
 function init() {
 inquirer
     .prompt(questions)
-    .then(function(answers) {
-    const initmarkdowncontent = markdown.genmarkdown(answers)
-    const genReadMeFile = 'README.md'
-    writeToFile(initmarkdowncontent, genReadMeFile)
-})
+    .then((answers) => {
+    answers.getLicense = renderLicenseBadge(answers.license);
+    writeToFile("newREADME.md", answers);
+});
 }
-init();
-// TODO: Create a function to initialize app
-
-
 // Function call to initialize app
+init();
+
+
+
+
