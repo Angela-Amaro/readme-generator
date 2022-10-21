@@ -18,12 +18,12 @@ const questions = [
     name: 'author',
     message: 'list your name here'
 },
+//table of contents 
 {
     type: 'input',
     name: 'description',
     message: 'what is the description of your project?',
 },
-//table of contents 
 {
     type: 'input',
     name: 'installation',
@@ -60,14 +60,6 @@ const questions = [
     name: 'email',
     message: 'Please enter your email'
 }];
-//function to write README file
-// function writeToFile(genreadme,data) {   
-
-// writeFileAsync(genreadme, generateReadme.generateReadme(data), (err) => {
-// err ? console.log(err) : console.log('Your generated readme is complete')
-// }); 
-// }
-// TODO: Create a function that returns a license badge based on which license is passed in
 
 // If there is no license, return an empty string
 function renderLicenseBadge(value) {
@@ -93,6 +85,7 @@ function renderLicenseBadge(value) {
         }
       
       }
+//function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName,generateReadme(data), function(err) {
       if (err) {
