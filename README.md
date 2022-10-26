@@ -14,9 +14,7 @@ Answer the questions to generate your README.md
 
 ![prompts screenshots](/prompts.jpg)
 
-[link to video demo of prompts](https://drive.google.com/file/d/1HmvoGa3KVe_elhzdNhfWCMlwzgEqy4jV/view)
-
-[link to video demo of generated readme results](https://drive.google.com/file/d/1M86wb8sy54qoockMsee6L_cx5EE4qFEW/view)
+[link to video demo](https://drive.google.com/file/d/1jgXi1mXR8cVuqTsiDdbV4TYs5Z3jOSEb/view)
 
 ## Languages
 
